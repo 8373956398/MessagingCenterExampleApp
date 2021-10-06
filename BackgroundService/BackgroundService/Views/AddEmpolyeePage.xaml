@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             x:Class="BackgroundService.Views.AddEmpolyeePage" Title="AddEmpolyee">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <ContentPage.Content>
+        <Frame BackgroundColor="White" HasShadow="True"
+               CornerRadius="10" Margin="20,0,20,0" VerticalOptions="Center">
+            <StackLayout Padding="5">
+                <Label Text="Add Empolyee" 
+                   HorizontalOptions="Center" 
+                   Margin="5" FontAttributes="Bold" 
+                   TextColor="Black" FontSize="Medium"/>
+                <Label Text="Name" TextColor="Black" FontSize="Small"/>
+                <Entry Placeholder="Empolyee Name"
+                   TextColor="Black" 
+                   Text="{Binding EmpolyeeName, Mode=TwoWay}"/>
+                <Label Text="Address" FontSize="Small" TextColor="Black"/>
+                <Entry Placeholder="Empolyee Address"
+                   TextColor="Black" 
+                   Text="{Binding Address, Mode=TwoWay}"/>
+                <StackLayout HorizontalOptions="End" Orientation="Horizontal">
+                    <Button Text="Save" BackgroundColor="Transparent" 
+                    TextColor="ForestGreen" 
+                    Margin="0" 
+                    HorizontalOptions="FillAndExpand" 
+                    Command="{Binding SaveEmpolyee}"/>
+                    <Button Text="Close" BackgroundColor="Transparent" 
+                    TextColor="ForestGreen" 
+                    Margin="0" 
+                    HorizontalOptions="FillAndExpand" 
+                    Command="{Binding ClosePopup}"/>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</pages:PopupPage>
